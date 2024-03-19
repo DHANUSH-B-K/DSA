@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSA PROGRAMS</title>
+<style>
+  body {
+    display: grid;
+    font-family: Arial, sans-serif;
+    
+  }
+
+  div{
+    align-items: center;
+  }
+  .section {
+    background-color:blanchedalmond;
+    margin-bottom: 20px;
+    padding: 75px;
+    border: 50px solid #1a6298;
+  }
+  .copy-btn {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  .copy-btn:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+    <div class="section">
+        <h1 style="text-align: center;">DSA PROGRAMS</h1>
+        <h3>NOTE: Click on copy button to copy programs</h3>
+        <h4>To view programs scroll down.</h4> 
+          <h4>  Add symbols <> to header files </h4>
+    <button onclick="copyToClipboard('section1')" class="copy-btn">Copy P1</button>
+    <button onclick="copyToClipboard('section2')" class="copy-btn">Copy P2</button>
+    <button onclick="copyToClipboard('section3')" class="copy-btn">Copy P3</button>
+    <button onclick="copyToClipboard('section4')" class="copy-btn">Copy P4</button>
+    <button onclick="copyToClipboard('section5a')" class="copy-btn">Copy P5a</button>
+    <button onclick="copyToClipboard('section5b')" class="copy-btn">Copy P5b</button>
+    <button onclick="copyToClipboard('section6')" class="copy-btn">Copy P6</button>
+    <button onclick="copyToClipboard('section7')" class="copy-btn">Copy P7</button>
+    <button onclick="copyToClipboard('section8')" class="copy-btn">Copy P8</button>
+    <button onclick="copyToClipboard('section9')" class="copy-btn">Copy P9</button>
+    <button onclick="copyToClipboard('section10')" class="copy-btn">Copy p10</button>
+    <button onclick="copyToClipboard('section11')" class="copy-btn">Copy P11</button>
+    <button onclick="copyToClipboard('section12')" class="copy-btn">Copy p12</button>
+</div>
+
+
+  <div class="section">
+    <h2>PROGRAM 1</h2>
+    <pre id="section1" class="content">
+        #include stdio.h
+        #include stdlib.h
+        #include string.h 
+        struct Day { // Structure to represent a day in the calendar 
+         char *dayName; 
+         int date; 
+         char *activity; 
+        }; 
+        struct Day create() { // Function to create a day and fill data 
+         struct Day day; 
+         day.dayName = (char *)malloc(20 * sizeof(char)); 
+         printf("Enter the day name: "); 
+         scanf("%s", day.dayName); 
+         printf("Enter the date: "); 
+         scanf("%d", &day.date); 
+        day.activity = (char *)malloc(100 * sizeof(char)); 
+         printf("Enter the activity: "); 
+         scanf(" %[^\n]", day.activity); // Read a line as an activity 
+         return day; 
+        }
+        void read(struct Day calendar[7]) { 
+            for (int i = 0; i < 7; i++) { 
+            printf("Enter details for day %d:\n", i + 1); 
+            calendar[i] = create(); 
+            } 
+           } 
+            // Function to display the calendar and its activities 
+           void display(const struct Day calendar[7]) { 
+            printf("\nCalendar for the week:\n"); 
+            for (int i = 0; i < 7; i++) { 
+            printf("Day %d: %s\n", i + 1, calendar[i].dayName); 
+            printf("Date: %d\n", calendar[i].date); 
+            printf("Activity: %s\n\n", calendar[i].activity); 
+            } 
+           } 
+           int main() { 
+            struct Day calendar[7]; 
+            printf("Create the calendar for the week:\n"); 
+            read(calendar); 
+            display(calendar); 
+            
+            for (int i = 0; i < 7; i++) { // Free the allocated memory 
+            free(calendar[i].dayName); 
+            free(calendar[i].activity); 
+            } 
+            return 0; 
+           } 
+        </pre>
+    <button onclick="copyToClipboard('section1')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 2</h2>
+    <pre id="section2" class="content">
+            #include stdio.h
+            #include conio.h
+            char str[100],pat[100],rep[100],ans[100]; 
+            void read() 
+            { 
+             printf(" Enter the string: "); 
+             gets(str); 
+             printf(" \n Enter the patter string: "); 
+             gets(pat); 
+             printf("\n Enter the replacement string: "); 
+             gets(rep); 
+            } 
+            void pat_match() 
+            { 
+             int i,j,c,m,k; 
+             int flag=0; 
+             i=m=c=j=0; 
+             while(str[c]!='\0') 
+             { 
+             if(str[m] == pat[i])//Pattern matching 
+             { 
+                i++; 
+                m++; 
+                if(pat[i]=='\0') 
+                { 
+                printf("\n pat:%s is found at position %d",pat,c); 
+                for(k=0;rep[k]!='\0';k++,j++) 
+                ans[j]=rep[k]; 
+                i=0; 
+                c=m; 
+                flag=1; 
+                } 
+                } 
+                else //pattern mismatch 
+                { 
+                ans[j]=str[c]; 
+                j++; 
+                c++; 
+                m=c; 
+                i=0; 
+                } 
+                } 
+                ans[j]='\0'; 
+                if(flag==0) 
+                printf("\n PAT:%s is not found in STR:%s",pat,str); 
+                else 
+                printf("\n The resulting string is: %s",ans); 
+               } 
+               void main() 
+               { 
+                read(); 
+                pat_match(); 
+               }
+               
+    </pre>
+    <button onclick="copyToClipboard('section2')" class="copy-btn">Copy</button>
+  </div>
+  <!-- Repeat the above div structure for each section (Section 3 to Section 12) -->
+  
+
+  <div class="section">
+    <h2>PROGRAM 3</h2>
+    <pre id="section3" class="content">
+        
+        #include stdio.h 
+            #include math.h 
+            #define max 10
+            int stack_list[max],top=-1;
+            void push(int m)
+            {
+            if(top==max-1)
+            printf("\n Stack overflow");
+            else
+            {
+            top++;
+            stack_list[top]=m;
+            }
+            }
+            int pop()
+            { 
+            if(top==-1)
+            {
+            printf("\n Stack underflow");
+            return -1;
+            }
+            else
+            return stack_list[top--];
+            }
+            void display()
+            {
+            int i;
+            if(top==-1)
+            printf("\n Stack is empty");
+            else
+            {
+            printf("\n The elements are");
+            for(i=top;i>=0;i--)
+            printf("%d\t",stack_list[i]);
+            }
+            }
+            void palindrome()
+            {
+            int n,num,rem,i;
+            printf("\n Enter n");
+            scanf("%d",&n);
+            top=-1;
+            num=n;
+            while(num!=0)
+            {
+            rem=num%10;
+            push(rem);
+            num=num/10;
+            }
+            num=0;
+            for(i=0;top!=-1;i++)
+            num=pop()*pow(10,i)+num;
+            if(n==num)
+            printf("\n It is a palindrome");
+            else
+            printf("\n It is not a palindrome");
+            }
+            int main()
+            {
+            int c,m;
+            while(1)
+            { printf("\n Enter 1-push\n2-pop\n3-display\n4-palindrome");
+            scanf("%d",&c);
+            switch(c)
+            {
+            case 1: printf("\n Enter an element\t");
+             scanf("%d",&m);
+             push(m);
+             break;
+            case 2: printf("\n The popped elementis %d",pop());
+             break;
+            case 3: display();
+            break;
+            case 4: palindrome();
+            break;
+            default:return 0;
+            }
+            }
+        }            
+    </pre>
+    <button onclick="copyToClipboard('section3')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 4 </h2>
+    <pre id="section4" class="content">
+        #include stdio.h
+            #include string.h
+            char stack[20];
+            int top=-1;
+            void push(char s)
+            {
+            ++top;
+            stack[top]=s;
+            }
+            char pop()
+            {
+            return stack[top--];
+            }
+            int precd(char s)
+            {
+            switch(s)
+            {
+            case '^': return 4;
+            case '%': case '*': case '/': return 3;
+            case '+': case '-': return 2;
+            case '(': case ')': case '#':return 1;
+            }
+            return 0;
+            }
+            void in_to_post(char infix[20], char postfix[20])
+            {
+            int i,k=0;
+            char symbol;
+            push('#');
+            for(i=0;infix[i]!='\0';i++)
+            {
+            symbol=infix[i];
+            switch(symbol)
+            { 
+            case '(': push(symbol);break;
+            case ')': while ( stack[top]!='(')
+            postfix[k++]=pop();
+             pop();
+             break;
+            case '^':
+            case '*':
+            case '/':
+            case '+':
+            case '-': 
+            case '%': while(precd(symbol)<=precd(stack[top]))
+            postfix[k++]=pop();
+             push(symbol);
+             break;
+            default: postfix[k++]=symbol;
+            }
+            }
+            while(stack[top]!='#')
+            postfix[k++]=pop();
+            postfix[k]='\0';
+            }
+            int main()
+            {
+            char infix[20],postfix[20];
+            print("\n Enter infix expression:");
+            scanf("%s",infix);
+            in_to_post(infix,postfix);
+            printf("%s",postfix);
+            return 0;
+            }
+    </pre>
+    <button onclick="copyToClipboard('section4')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 5a</h2>
+    <pre id="section5a" class="content">
+        #include stdio.h 
+        #include ctype.h
+        #include math.h
+        #define MAX 20 
+        int stack[MAX],top=-1; 
+        void push(int item) 
+        { 
+         stack[++top]=item; 
+        } 
+        int pop() 
+        { 
+         return(stack[top--]); 
+        } 
+        void main() 
+        { 
+         char suffix[50]; 
+         int i=0,temp; 
+         printf("\nEnter a valid suffix expression:"); 
+         scanf("%s",suffix); 
+         for(i=0;suffix[i]!='\0';i++) 
+         { 
+         if(isdigit(suffix[i]))
+         push(suffix[i]-'0'); 
+         switch(suffix[i]) 
+         { 
+         case '+': push(pop()+pop()); break; 
+         case '-': temp=pop(); 
+         push(pop()-temp); break; 
+         case '*': push(pop()*pop()); break; 
+         case '/': temp=pop(); 
+         push(pop()/temp); break; 
+         case '%': temp=pop(); 
+         push(pop()%temp); break; 
+         case '^': temp=pop(); 
+         push(pow(pop(),temp)); break; 
+         } // end switch 
+         } // end for 
+         printf("The value of the given expression is %d\n",pop()); 
+        }</pre>
+    <button onclick="copyToClipboard('section5a')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 5b</h2>
+    <pre id="section5b" class="content">
+        #include stdio.h
+            void towers(int, char, char, char); 
+            void main() 
+            { 
+             int num; 
+             printf("Enter the number of disks: "); 
+             scanf("%d", &num); 
+             printf("The sequence of moves involved in the Tower of Hanoi are :\n"); 
+             towers(num, 'A', 'C', 'B'); 
+            } 
+            void towers(int num, char source, char dest, char aux) 
+            { 
+             if(num == 1) { 
+             printf("\n Move disk 1 from peg %c to peg %c",source,dest); 
+             return; 
+             } 
+             towers(num - 1, source, aux,dest); 
+             printf("\n Move disk %d from peg %c to peg %c", num, source, dest); 
+                towers(num - 1, aux, dest, source); 
+            }
+    </pre>
+    <button onclick="copyToClipboard('section5b')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 6</h2>
+    <pre id="section6" class="content">
+        #include stdio.h 
+            #include stdlib.h
+            #define max 5
+            int qlist[10],count=0,rear=-1,front=0;
+            void insert_cq(int item)
+            {
+                if(count==max)
+                    printf("Queue is full\n");
+                else
+                {
+                    rear=(rear+1)%max;
+                    qlist[rear]=item;
+                    count++;
+                }
+            }
+            void delete_cq()
+            {
+                int num;
+                if(count==0)
+                    printf("Queue is empty\n");
+                else
+                {
+                    num=qlist[front];
+                    front=(front+1)%max;
+                    printf("Deleted element is %d\n",num);
+                    count--;
+                }
+            }
+            void display()
+            {
+                if(count==0)
+                    printf("Queue is empty\n");
+                else
+                {
+                    int i,j;
+                    for(i=front,j=1;j<=count;j++)
+                    {
+                        printf("%d  ",qlist[i]);
+                        i=(i+1)%max;
+                    }
+                    printf("\n");
+                }
+            }
+            
+            int main()
+            {
+                int n,choice;
+                while(1)
+                {
+                    printf("1.Insert_cq 2.Delete_cq 3.Display 4.Exit,choice: ");
+                    scanf("%d",&choice);
+                    switch(choice)
+                    {
+                        case 1:printf("Enter the element to insert: ");
+                                scanf("%d",&n);
+                                insert_cq(n);
+                                break;
+                        case 2:delete_cq();
+                                break;
+                        case 3:display();
+                                break;
+                        case 4:exit(0);
+                        default:printf("Enter valid choice\n");
+                                break;
+                    }
+                }
+            }
+    </pre>
+    <button onclick="copyToClipboard('section6')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 7</h2>
+    <pre id="section7" class="content">
+        #include stdio.h 
+            #include string.h
+            #include stdlib.h
+            int count=0; 
+            struct node 
+            { 
+             int sem; 
+             long int phno; 
+             char name[20],branch[20],usn[10]; 
+             struct node *next; 
+            }*first=NULL,*last=NULL,*temp=NULL,*temp1=NULL; 
+            void create() 
+            { 
+             int sem,phno; 
+             char name[20],usn[10],branch[20]; 
+             temp=(struct node *)malloc(sizeof(struct node)); 
+             printf("Enter the details \n"); 
+             printf("\nName:"); scanf("%s",name); flushall(); 
+             printf("\nUSN:"); gets(usn); flushall(); 
+             printf("\nBranch:"); gets(branch); 
+             printf("\nSem:"); scanf("%d",&sem); 
+             printf("\nPhone Number:"); scanf("%ld",&phno); 
+             strcpy(temp->usn,usn); 
+             strcpy(temp->name,name); 
+             strcpy(temp->branch,branch); 
+             temp->sem=sem; 
+             temp->phno=phno; 
+             temp->next=NULL; 
+             count++; 
+            } 
+            void deletefront() 
+            { 
+             temp=first; 
+             if(first==NULL)
+             { 
+             printf("\n list is empty");
+             return; 
+            } 
+            if(temp->next==NULL) 
+            { 
+            printf("The deleted node is \n"); 
+            printf("%s\t%s\t%s\t%d\t%ld", temp->name, temp->usn, 
+            temp->branch, temp->sem, temp->phno); 
+            free(temp); 
+            first=NULL; 
+            } 
+            else 
+            { 
+            first=temp->next; 
+            printf("The deleted node is \n"); 
+            printf("%s\t%s\t%s\t%d\t%ld",temp->name,temp->usn,temp->branch, 
+            temp->sem, temp->phno); 
+            free(temp); 
+            } 
+            count--; 
+           } 
+           void deleteatend() 
+           { 
+            temp=first; 
+            if(first==NULL) 
+            { 
+            printf("\n list is empty"); 
+            return; 
+            } 
+            if(temp->next==NULL) 
+            { 
+            printf("The deleted node is \n"); 
+            printf("%s\t%s\t%s\t%d\t%ld",temp->name,temp->usn, 
+            temp->branch,temp->sem,temp->phno); 
+            free(temp); 
+            first=NULL; 
+            } 
+            else 
+            { 
+            while(temp->next!=last) 
+            temp=temp->next; 
+            printf("The deleted node is \n"); 
+            printf("%s\t%s\t%s\t%d\t%ld",last->name,last->usn, last>branch, 
+            last->sem,last->phno); 
+            free(last); 
+            last=temp; 
+            last->next=NULL; 
+            } 
+            count--; 
+           }
+           void insertatfirst() 
+           { 
+            create(); 
+            if(first==NULL) 
+            { 
+            first=temp; 
+            last=first; 
+            } 
+            else 
+            { 
+            temp->next=first; 
+            first=temp; 
+            } 
+           } 
+           void insertatlast() 
+           { 
+            create(); 
+            if(first==NULL) 
+            { 
+            first=temp; 
+            last=first; 
+            } 
+            else 
+            { 
+            last->next=temp; 
+            last=temp; 
+            } 
+           } 
+           void display() 
+           { 
+            if(first==NULL) 
+            { 
+            printf("\n list is empty"); 
+            } 
+            else 
+            { 
+            temp=first; 
+            printf("The node is \n"); 
+            while(temp!=NULL) 
+            { 
+            printf("%s\t%s\t%s\t%d\t%ld--->",temp->name,temp->usn, 
+           temp->branch,temp->sem,temp->phno); 
+            temp=temp->next; 
+           } 
+            printf("\nThe number of nodes in the linked list is %d.",count); 
+            } 
+           } 
+           void main() 
+           { 
+            int ch,i,n; 
+            while(1) 
+            { 
+            printf("\n1.Insert n details student "); 
+            printf("\n2.Insert at beginning"); 
+            printf("\n3.Insert at last"); 
+            printf("\n4.Delete from beginning"); 
+           printf("\n5.Delete from last"); 
+           printf("\n6.Display"); 
+           printf("\n7.Exit"); 
+           printf("\nEneter your choice : "); 
+           scanf("%d",&ch); 
+           switch(ch) 
+           { 
+           case 1 :printf("\nEnter the value of n "); 
+           scanf("%d",&n); 
+           for(i=0;i< n;i++) 
+           insertatfirst(); 
+           break; 
+           case 2 : insertatfirst(); 
+           break; 
+           case 3 : insertatlast(); 
+           break; 
+           case 4 : deletefront(); 
+           break; 
+           case 5 : deleteatend(); 
+           break; 
+           case 6 : display(); 
+           break; 
+           case 7 : return; 
+           default: printf("\n Wrong Input, try again"); 
+           } // end of switch 
+            } // end of while 
+           } // end of main()
+    </pre>
+    <button onclick="copyToClipboard('section7')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 8</h2>
+    <pre id="section8" class="content">
+        #include stdio.h 
+            #include conio.h 
+            #include stdlib.h 
+            #include string.h
+             
+            int count=0; struct node 
+            { 
+             struct node *prev; 
+            int ssn; 
+            long int phno; 
+             char name[20],dept[20],desg[10]; 
+             float sal; 
+            struct node *next; 
+            }*first=NULL,*last=NULL,*temp=NULL,*temp1=NULL; 
+             
+            void create() 
+            { 
+             int ssn; long int phno; 
+             char name[20],dept[20],desg[10]; 
+             float sal; 
+             temp=(struct node *)malloc(sizeof(struct node)); 
+             printf("\n 
+             Enter the employee details:ssn,name,dept,desg,sal, phno"); 
+             scanf("%d%s%s%s%f%ld",&ssn,name,dept,desg,&sal,&phno); 
+            strcpy(temp->name,name); 
+            strcpy(temp->dept,dept); 
+            strcpy(temp->desg,desg); 
+            temp->ssn=ssn; 
+            temp->sal=sal; 
+            temp->phno=phno; 
+            temp->prev=NULL; 
+            temp->next=NULL; 
+             count++; 
+            } 
+            void deleteatfirst() 
+            { 
+             temp=first; 
+             if(first==NULL) { 
+             printf("\n DLL is empty"); 
+             return; 
+             } 
+             if(temp->next==NULL) 
+             { 
+             printf("\nDeleted node is:"); 
+             printf("%d\t%s\t%s\t%s\t%f\t%ld", 
+             temp->ssn,temp->name,temp->dept,temp->desg,temp->sal, 
+             temp->phno); 
+             free(temp); 
+             first=NULL; 
+             } 
+             else 
+             { 
+             first=temp->next; 
+             printf("\nDeleted node is:"); 
+             printf("%d\t%s\t%s\t%s\t%f\t%ld", 
+             temp->ssn,temp->name,temp->dept,temp->desg,temp->sal, 
+             temp->phno); 
+             free(temp); 
+             first->prev=NULL; 
+             } 
+             count--; 
+            } 
+            void deleteatlast() 
+            { 
+             temp=first; 
+             if(first==NULL) { 
+             printf("\n DLL is empty"); 
+             return; 
+             } 
+             if(temp->next==NULL) 
+             { 
+             printf("\nDeleted node is:"); 
+             printf("%d\t%s\t%s\t%s\t%f\t%ld", 
+             temp->ssn,temp->name,temp->dept,temp->desg,temp->sal, 
+             temp->phno); 
+             free(temp); 
+             first=NULL; 
+             } 
+             else 
+             { 
+             printf("\nThe deleted node is:");
+             temp1=last->prev; 
+             printf("%d\t%s\t%s\t%s\t%f\t%ld", 
+             temp->ssn,temp->name,temp->dept,temp->desg,temp->sal, 
+             temp->phno); 
+             free(last); 
+             last=temp1; 
+             last->next=NULL; 
+             } 
+             count--; 
+            } 
+            void insertatfirst() 
+            { 
+             create(); 
+             if(first==NULL) { 
+             first=temp; 
+             last=first; 
+             } 
+             else 
+             { 
+             first->prev=temp; 
+             temp->next=first; 
+             first=temp; 
+             } 
+            } 
+             
+            void insertatlast() 
+            { 
+             create(); 
+             if(first==NULL) 
+             { 
+             first=temp; 
+             last=first; 
+             } 
+             else 
+             { 
+             last->next=temp; 
+             temp->prev=last; 
+             last=temp; 
+             } 
+            } 
+            void display() 
+            { 
+             if(first==NULL) 
+             { 
+             printf("\nDLL is empty."); 
+             return; 
+             } 
+             else 
+             { 
+                temp=first; 
+                printf("\n DLL is\n"); 
+                while(temp!=NULL) 
+                { 
+                printf("%d\t%s\t%s\t%s\t%f\t%ld", 
+                temp->ssn,temp->name,temp->dept,temp->desg,temp->sal, 
+                temp->phno); 
+                temp=temp->next; 
+                } 
+                printf("\nThe number of nodes are %d.",count); 
+                } 
+               } 
+               void main() 
+               { 
+                int ch,i,n; 
+                while(1) 
+                { 
+                printf("\nEnter the details:"); 
+                printf("\n1.Enter n employee details."); 
+                printf("\n2.Insert at beginning."); 
+                printf("\n3.Insert at last"); 
+                printf("\n4.Delete at beginning"); 
+                printf("\n5.Delete at last"); 
+                printf("\n6.Display"); 
+                printf("\n7.Exit"); 
+                printf("\nEnter your choice:"); 
+                scanf("%d",&ch); 
+               switch(ch) 
+                { 
+                case 1:printf("Enter n value:"); 
+                scanf("%d",&n); 
+                for(i=0;i< n;i++) 
+                insertatlast(); 
+                break; 
+                case 2:insertatfirst(); break; 
+                case 3:insertatlast(); break; 
+                case 4:deleteatfirst(); break; 
+                case 5:deleteatlast(); break; 
+                case 6:display(); break; 
+                case 7:return; 
+                default:printf("Invalid input."); 
+                } 
+                } 
+               } 
+                                     
+    </pre>
+    <button onclick="copyToClipboard('section8')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 9</h2>
+    <pre id="section9" class="content">
+
+        #include stdio.h
+            #include stdlib.h
+            #include math.h
+            struct poly
+            {
+             int cf,px,py,pz,used;
+             struct poly *link;
+            };
+            typedef struct poly node;
+            node* getnode()
+            {
+            node* newnode;
+            newnode=(node*)malloc(sizeof(node));
+            printf("Enter the polynomial term(coeff, power of x, y, z):");
+            scanf("%d%d%d%d",&newnode->cf,&newnode->px,&newnode->py,&newnode-
+            >pz);
+            newnode->used=0;
+            newnode->link=NULL;
+            return newnode;
+            }
+            void insert_front(node* head)
+            {
+            node* nn;
+            nn=getnode();
+            nn->link = head->link;
+            head->link = nn;
+            }
+            void read_poly(node *head)
+            {
+            int n,i;
+            printf("Enter the no. of terms in polynomial:");
+            scanf("%d",&n);
+            for(i=0;i< n;i++)
+            insert_front(head);
+            }
+            void display(node *head)
+            {
+             node *temp = head->link;
+             while(temp!= head)
+             {
+            printf(" %+dx^%dy^%dz^%d",temp->cf,temp->px,temp->py,temp->pz);
+            temp=temp->link;
+             }
+            }
+            void add_poly(node* h1, node* h2, node* h3)
+            {
+            node *t1=h1->link, *t2,*nn;
+            while(t1!=h1)
+            {
+            nn=(node*)malloc(sizeof(node));
+            *nn=*t1;
+            t2=h2->link;
+            while(t2!=h2)
+            {
+            if(t2->used==0 && t1->px==t2->px && t1->py==t2->py && 
+            t1->pz==t2->pz)
+            {
+            nn->cf+=t2->cf;
+            t2->used=1;
+            }
+            t2=t2->link;
+            }
+            nn->link=h3->link;
+            h3->link=nn;
+            t1=t1->link;
+            }
+            t2=h2->link;
+            while(t2!=h2)
+            {
+            if(t2->used==0)
+            {
+            nn=(node*)malloc(sizeof(node));
+            *nn=*t2;
+            nn->link=h3->link;
+            h3->link=nn;
+            }
+            t2=t2->link;
+            }
+            }
+            void evaluate(node *h)
+            {
+            int x,y,z,sum=0;
+            node *temp=h->link;
+            printf("Enter the values of x, y, z:");
+            scanf("%d%d%d",&x,&y,&z);
+            while(temp!=h)
+            {
+            sum+=temp->cf*pow(x,temp->px)*pow(y,temp->py)*pow(z,temp-
+            >pz);
+            temp=temp->link;
+            }
+            printf("Evaluated value is %d\n",sum);
+            }
+            int main()
+            {
+            node *h1,*h2,*h3;
+             h1 = (node*) malloc(sizeof(node));
+             h1->link = h1;
+             h2 = (node*) malloc(sizeof(node));
+             h2->link = h2;
+             h3 = (node*) malloc(sizeof(node));
+             h3->link = h3;
+             printf("First polynomial\n");
+             read_poly(h1);
+             printf("Second polynomial\n");
+             read_poly(h2);
+             add_poly(h1,h2,h3);
+             printf("\nTHE FIRST POLY IS\n");
+             display(h1);
+             printf("\nTHE SEC POLY IS\n");
+             display(h2);
+             printf("\nADDition of TWO poly are\n");
+             display(h3);
+             evaluate(h3);
+            }
+
+    </pre>
+    <button onclick="copyToClipboard('section9')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 10</h2>
+    <pre id="section10" class="content">
+        #include stdio.h
+            #include stdlib.h
+             
+            struct BST 
+            { int item; 
+             struct BST *llink, *rlink; 
+            }; 
+            typedef struct BST* NODE; 
+             
+            NODE insert(NODE); 
+            void inorder(NODE); 
+            void preorder(NODE); 
+            void postorder(NODE); 
+            NODE search(NODE, int); 
+            NODE Delete(NODE, int); 
+            void main() 
+            { 
+             int choice, key,n,i; 
+             NODE root = NULL, tmp, parent; 
+             
+            while(1) 
+             { 
+             printf("\n1.Create"); 
+             printf("\n2.Traverse : Preorder, Inorder, Postorder"); 
+             printf("\n3.Search"); 
+             printf("\n4.Delete an element from the Tree"); 
+             printf("\n5.Exit"); 
+             printf("\nEnter your choice :"); 
+             scanf("%d", &choice); 
+             switch (choice) 
+             { 
+             case 1: printf("\n enter the number of nodes"); 
+             scanf("%d",&n); 
+             for(i=0;i< n;i++) 
+             root = insert(root); 
+             break; 
+             case 2: if (root == NULL) 
+             printf("Tree Is Not Created"); 
+             else 
+             {
+                printf("\nTheInorder display : "); 
+                inorder(root); 
+                printf("\nThe Preorder display : "); 
+                preorder(root); 
+                printf("\nThePostorder display : "); 
+                postorder(root); 
+                } 
+                break; 
+                case 3: printf("\nEnter Element to be searched :"); 
+                scanf("%d", &key); 
+                tmp = search(root, key); 
+                if(tmp == NULL) 
+                printf("Element does not exists\n"); 
+                else 
+                printf("\nThe element %d found", tmp->item); 
+                break; 
+                case 4: printf("\nEnter Element to be deleted :"); 
+                scanf("%d", &key); 
+                root = Delete(root, key); 
+                break; 
+                default: exit(0); 
+                } 
+                } 
+               } 
+               /* This function is for creating a binary search tree */ 
+               NODE insert(NODE root) 
+               { 
+                NODE temp, cur, prev; 
+                int item; 
+                printf("\nEnter The Element "); 
+                scanf("%d", &item); 
+                temp = (NODE) malloc(sizeof(struct BST)); 
+                temp->llink = NULL; temp->rlink = NULL; 
+                temp->item = item; 
+                
+                if (root == NULL) 
+                return temp; 
+                prev = NULL; 
+                cur = root; 
+                while(cur != NULL) 
+                { 
+                prev = cur; 
+                if (item < cur-> item) 
+                cur = cur->llink; 
+                else 
+                cur = cur->rlink; 
+                } 
+                if (item < prev->item) 
+                    prev->llink = temp; 
+                    else 
+                    prev->rlink = temp; 
+                    return root; 
+                   } 
+                    
+                   /* This function displays the tree in inorder fashion */ 
+                   void inorder(NODE root) 
+                   { 
+                    if (root != NULL) 
+                    { 
+                    inorder(root->llink); 
+                    printf("%d\t", root->item); 
+                    inorder(root->rlink); 
+                    } 
+                   } 
+                   /* This function displays the tree in preorder fashion */ 
+                   void preorder(NODE root) 
+                   { 
+                    if (root != NULL) 
+                    { 
+                   printf("%d\t", root->item); 
+                   preorder(root->llink); 
+                    preorder(root->rlink); 
+                    } 
+                   } 
+                   /* This function displays the tree in postorderfashion */ 
+                   void postorder(NODE root) 
+                   { 
+                    if (root != NULL) 
+                    { 
+                   postorder(root->llink); 
+                   postorder(root->rlink); 
+                   printf("%d\t", root->item); 
+                    } 
+                   } 
+                   NODE search(NODE root, int key) 
+                   { 
+                    NODE cur; 
+                    if(root == NULL) 
+                    return NULL; 
+                    cur = root; 
+                    while(cur != NULL) 
+                    { 
+                    if(key == cur->item) 
+                    return cur; 
+                    if(key<cur->item) 
+                        cur = cur->llink; 
+                        else 
+                        cur = cur->rlink; 
+                        } 
+                        return NULL; 
+                       } 
+                       NODE Delete(NODE root, int data) 
+                       { 
+                        NODE temp; 
+                        int min; 
+                        
+                        if (root == NULL) 
+                        { 
+                        return NULL; 
+                        } 
+                        if (data < root->item) 
+                        { // data is in the left sub tree. 
+                        root->llink = Delete(root->llink, data); 
+                        } 
+                        else if (data > root->item) { // data in the right sub tree. 
+                        root->rlink = Delete(root->rlink, data); 
+                        } 
+                        else 
+                        { 
+                        // case 1: no children 
+                        if (root->llink == NULL && root->rlink == NULL) 
+                        { 
+                        free(root); // wipe out the memory, in C, use free fn 
+                        root = NULL; 
+                        } 
+                        // case 2: one child (right) 
+                        else if (root->llink == NULL) 
+                        { 
+                        temp = root; // save current node as a backup 
+                        root = root->rlink; 
+                        free(temp); 
+                        } 
+                        // case 3: one child (left) 
+                        else if (root->rlink == NULL) 
+                        { 
+                        temp = root; // save current node as a backup 
+                        root = root->llink; 
+                        free(temp); 
+                        } 
+                        
+                        // case 4: two children 
+                        else 
+                        { 
+                        min = FindMin(root->rlink); 
+                        // find minimal value of right sub tree 
+                        root->item = min; // duplicate the node 
+                        root->rlink = Delete(root->rlink, min); 
+                        // delete the duplicate node 
+                        } 
+                        } 
+                        return root; // parent node can update reference 
+                       } 
+                       int FindMin(NODE root) 
+                       { 
+                        if (root == NULL) 
+                        return -1; // or undefined. 
+                        
+                        if (root->llink != NULL) { 
+                        return FindMin(root->llink); // left tree is smaller 
+                        } 
+                        return root->item; 
+                       }
+                       
+    </pre>
+    <button onclick="copyToClipboard('section10')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 11</h2>
+    <pre id="section11" class="content">
+        #include stdio.h 
+            int a[10][10],visit[10],n;
+            void DFS(int s)	
+            {
+                int i;
+                visit[s]=1;
+                for(i=1;i<=n;i++)
+                {
+                    if((a[s][i]==1)&&(visit[i]==0))
+                        DFS(i);
+                }
+            }
+            int main()
+            {
+                int i,s,j;
+                printf("No of vertices\n");
+                scanf("%d",&n);
+                printf("\n Enter adjacency matrix");
+                for(i=1;i<=n;i++)
+                {
+                    for(j=1;j<=n;j++)
+                        scanf("%d",&a[i][j]);
+                }
+                printf("\n Enter the source node");
+                scanf("%d",&s);
+                DFS(s);
+                printf("\n Nodes reachable from %d are \n",s);
+                for(i=1;i<=n;i++)
+                    if(visit[i]==1 && i!=s)
+                        printf("%d\t",i);
+                return 0;
+            }
+            
+            
+
+    </pre>
+    <button onclick="copyToClipboard('section11')" class="copy-btn">Copy</button>
+  </div>
+
+
+  <div class="section">
+    <h2>PROGRAM 12</h2>
+    <pre id="section12" class="content">
+        #include stdio.h
+            #include stdlib.h
+            FILE *fp; 
+            struct employee 
+            { 
+             char name[20]; 
+             int key,salary; 
+            } emp[20]; int n,m; int *ht,index; 
+            int count = 0; 
+            void insert(int key) 
+            { 
+             index = key % m; 
+             while(ht[index] != -1) 
+             { 
+             printf("\ncollision detected for %d and resloved using linear 
+            probing",key); 
+             index = (index+1)%m; 
+             } 
+             ht[index] = key; 
+             count++; 
+             } 
+             
+            void display() 
+            { 
+             int i; 
+             if(count == 0) 
+             { 
+             printf("\nHash Table is empty"); 
+             return; 
+             } 
+             
+             printf("\nHash Table contents are:\n "); 
+            for(i=0; i< m; i++) 
+             printf("\n T[%d] --> %d ", i, ht[i]); 
+            } 
+            void main() 
+            { 
+             int i; 
+             printf("\nEnter the number of employee records (N) : "); 
+             scanf("%d", &n); 
+             
+             printf("\nEnter the 2digit memory locations (m) for hash table: "); 
+             scanf("%d", &m);
+             ht = (int *)malloc(m*sizeof(int)); 
+             for(i=0; i< m; i++) 
+             ht[i] = -1; 
+             fp=fopen("C:\\PROGRAM1.txt","w"); 
+             printf("\nEnter the four digit key,name,salary values (K) for N 
+            Employee Records:\n"); 
+             for(i=0; i< n; i++) 
+             { 
+             scanf("%d%s%d",&emp[i].key,&emp[i].name,&emp[i].salary); 
+             fprintf(fp,"%d\t%s\t%d\n",emp[i].key,emp[i].name,emp[i].salary); 
+             } 
+             fclose(fp); 
+             fp=fopen("C:\\PROGRAM1.txt","r"); 
+             for(i=0;i< n;i++) 
+             { 
+             if(count == m) 
+             { 
+             printf("\n~~~Hash table is full. "); 
+             break; 
+             } 
+             fscanf(fp,"%d",&emp[i].key); 
+             insert(emp[i].key); 
+             } 
+             fclose(fp); 
+             //Displaying Keys inserted into hash table 
+             display(); 
+            }
+    </pre>
+    <button onclick="copyToClipboard('section12')" class="copy-btn">Copy</button>
+  </div>
+
+
+
+ 
+
+<script>
+  function copyToClipboard(elementId) {
+    var content = document.getElementById(elementId).innerText;
+    var tempInput = document.createElement("input");
+    tempInput.setAttribute("value", content);
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("Copied to clipboard: " + content);
+  }
+</script>
+</body>
+</html>
